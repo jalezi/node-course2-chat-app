@@ -1,10 +1,24 @@
 <!DOCTYPE html>
+<!-- first time i tried it did not work with lang="en" dir="ltr" -->
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <p>Welcome to the chat app</p>
-  </body>
+</head>
+<body>
+    <p>Welcome to the chat app!</p>
+    <script src="/socket.io/socket.io.js"></script></script>
+    <script>
+        // request from client to server to open a websocket and keep connection open
+        var socket = io();
+
+        // listen on event connect
+        socket.on('connect', () => {
+          console.log('Connected to server');
+        });
+
+        socket.on('disconnect', () => {
+          console.log('Disconnected from server');
+        });
+    </script>
+</body>
 </html>
